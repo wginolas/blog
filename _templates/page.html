@@ -1,0 +1,15 @@
+{% extends "!page.html" %}
+
+{%- block footer -%}
+    <footer class="wrapper">
+        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+            <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" />
+        </a>
+        This work by 
+        <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.gwif.eu" property="cc:attributionName" rel="cc:attributionURL">Wolfgang Ginolas</a> 
+        is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
+    {%- if show_sphinx -%}
+      &nbsp;Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    {%- endif -%}
+    </footer>
+{%- endblock -%}

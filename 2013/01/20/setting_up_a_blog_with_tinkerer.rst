@@ -35,7 +35,7 @@ First post
 
 Btw, I found this_ page quite useful, to learn *reStructuredText*.
 
-.. _this: http://people.ee.ethz.ch/~creller/web/tricks/reST.html
+.. _this: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
 
 Hello World!

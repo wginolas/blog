@@ -12,16 +12,16 @@ My ~/.gnus.el
 
     ; Gnus
     (require 'gnus)
-    
+
     ; Use IMAP to fetch mails.
     (setq gnus-select-method '(nnimap "gmail"
                                       (nnimap-address "imap.gmail.com")
                                       (nnimap-server-port 993)
                                       (nnimap-stream ssl)))
-    
+
     ; Make Gnus NOT ignore [Gmail] mailboxes.
     (setq gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
-    
+
     ; Use SMTP to send mails.
     ; See also: http://linil.wordpress.com/2008/01/18/gnus-gmail/
     (setq user-full-name "Full Name")
@@ -33,15 +33,15 @@ My ~/.gnus.el
           message-send-mail-function 'smtpmail-send-it
           smtpmail-smtp-service 587
           smtpmail-auth-credentials "~/.authinfo")
-    
-    
+
+
     ; Look for new mails every 10 minutes, when emacs was idle for 1 minute.
     (gnus-demon-add-handler 'gnus-demon-scan-news 10 1)
-    
+
     ; Hook to sign all messages with gpg. gpg will use the "default" private key, which is
     ; the first key in the secret keyring.
     (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
-    
+
     ; Use BBDB ass address book.
     (require 'bbdb)
     (bbdb-initialize 'gnus 'message)

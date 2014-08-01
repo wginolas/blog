@@ -4,15 +4,15 @@ Clean up Downloads
 As Lifehacker.com_ suggests, you can use the ``/tmp`` folder for files which you only need for a short time. Those files are deleted on the next reboot. I like the idea, that I do not have to clean up my temporary files. Especially files in my ``Downloads`` folder. However, I do not like the idea, that those files are deleted on every reboot, i.e. daily. So I wrote a little Python script to remove downloads that are older than 30 days::
 
     #!/usr/bin/python
-    
+
     import os
     import shutil
     import time
     import logging
-    
+
     CLEAN_FOLDERS = ["~/dummy", "~/Downloads"]
     MAX_AGE = 30 * 24 * 60 * 60 # 30 days in seconds
-    
+
     def main():
         logging.basicConfig(
             filename=os.path.expanduser('~/logs/dir-cleanup.log'),
@@ -30,7 +30,7 @@ As Lifehacker.com_ suggests, you can use the ``/tmp`` folder for files which you
                         shutil.rmtree(full_path, ignore_errors=True)
                     else:
                         os.remove(full_path)
-    
+
     if __name__ == "__main__":
         main()
 
@@ -42,11 +42,11 @@ As Lifehacker.com_ suggests, you can use the ``/tmp`` folder for files which you
 As you see, this script also cleans my ``dummy`` folder where keep my temporary stuff, like screen shots I attached to bug reports. To run this script daily, I dropped a file with this content to ``/etc/cron.daily``::
 
     #!/bin/sh -e
-    
+
     su -c "/home/wolfgang/bin/dir-cleanup.py" wolfgang
 
 
 .. author:: default
 .. categories:: none
-.. tags:: python
+.. tags:: cron, python
 .. comments::
